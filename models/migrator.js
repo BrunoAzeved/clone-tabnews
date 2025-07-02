@@ -3,11 +3,11 @@ import { resolve } from "node:path";
 import database from "infra/database.js";
 
 const defaultMigrationsOptions = {
+  dryRun: true,
   dir: resolve("infra", "migrations"),
   direction: "up",
-  verbose: true,
+  log: () => {},
   migrationsTable: "pgmigrations",
-  dryRun: true,
 };
 
 async function listPendingMigrations() {
